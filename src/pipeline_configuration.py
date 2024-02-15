@@ -1,0 +1,2 @@
+class PipelineConfiguration:
+    pass

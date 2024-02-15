@@ -1,16 +1,24 @@
-# This is a sample Python script.
+import argparse
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+from src.pipeline_configuration import PipelineConfiguration
+from src.test_configuration import TestConfiguration
+from src.test_pipeline import TestPipeline
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def parse_args():
+    parser = argparse.ArgumentParser(description='MMDetection test')
+    parser.add_argument('--config', help='test config file path')
+    parser.add_argument('--checkpoint', help='checkpoint file')
+    parser.add_argument('--work-dir', help='the directory to save the file containing evaluation metrics')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    return parser.parse_args()
+
+
+if __name__ == "__main__":
+    args = parse_args()
+
+    pipeline_configuration: PipelineConfiguration = PipelineConfiguration()
+    test_configuration: TestConfiguration = TestConfiguration(config_path=args.config)
+    test_pipeline: TestPipeline = TestPipeline()
+
+    test_pipeline.test(test_configuration)

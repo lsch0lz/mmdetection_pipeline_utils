@@ -1,0 +1,8 @@
+# CORE
+mmcv>=2.0.0
+torch==2.2.0
+mmdet==3.3.0
+mmengine==0.10.3
+
+# UTILS
+pytest==8.0.0

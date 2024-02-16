@@ -34,7 +34,3 @@ class TestPipeline:
         runner = Runner.from_cfg(model_config)
 
         runner.test()
-
-
-
-

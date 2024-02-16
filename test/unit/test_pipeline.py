@@ -6,8 +6,8 @@ from src.test_configuration import TestConfiguration
 
 class TestTestPipeline(unittest.TestCase):
     def test_if_test_is_executed_with_given_config_and_model_file(self):
-        config_path = "test/data/rtmdet_tiny_8xb32-300e_coco.py"
-        model_checkpoint = "test/data/rtmdet_tiny_8xb32-300e_coco.py"
+        config_path = "test/data/faster-rcnn_r50_fpn.py"
+        model_checkpoint = "test/data/resnet50-19c8e357.pth"
 
         test_pipeline = TestPipeline()
         test_configuration = TestConfiguration(config_path=config_path,
